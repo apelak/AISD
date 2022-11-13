@@ -1,4 +1,5 @@
 from typing import Any, List, Callable
+from Queue import Queue
 
 
 class TreeNode:
@@ -22,12 +23,26 @@ class TreeNode:
         for x in self.children:
             x.for_each_deep_first(visit)
 
+    def for_each_level_order(self, visit: Callable[['TreeNode'], None]) -> None:
+        queue = Queue()
+        queue.enqueue(self)
+        while queue:
+            temp = queue.peek()
+            visit(queue.peek())
+            queue.dequeue()
+            for x in temp.children:
+                queue.enqueue(x)
 
-p = print
+
+    # def search(self, value: Any) -> Any:
+
+
+
+t = print
 
 
 def print(adres: 'TreeNode') -> None:
     if isinstance(adres, TreeNode):
-        p(adres.value)
+        t(adres.value)
     else:
-        p(adres)
+        t(adres)

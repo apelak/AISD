@@ -18,7 +18,10 @@ def main():
     print(lisc4.is_leaf())
     print(lisc5.is_leaf())
 
+
+
     lisc1.for_each_deep_first(print)
+    #lisc1.for_each_level_order(print)
 
 
 if __name__ == '__main__':
